@@ -13,7 +13,7 @@
 //            $this->load->library('encrypt');
 //            $this->load->library('paypal');
             
-            $this->template->set_template('default');
+//            $this->template->set_template('default');
 //            $this->template->write('title', 'Teacher Portal');
 //            $this->template->write('content', 'You one ');
 //            $title
