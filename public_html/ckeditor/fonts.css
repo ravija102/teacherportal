@@ -1,0 +1,5 @@
+@font-face {  
+    font-family:"Gujrati Saral-1";
+	src: url(../font/Gujrati-Saral-1.ttf);
+    src: local("realfontname"), url("../font/Gujrati-Saral-1.ttf") format("truetype"); /*non-IE*/  
+}
