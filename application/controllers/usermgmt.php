@@ -72,7 +72,7 @@ require_once (APPPATH . 'controllers/home.php');
             
             if($this->session->userdata('isLoggedIn')) {
                 
-                $this->load->view('dashboard');
+                redirect("/gradeweight/gradeweight_list/");
             }
             else {
                 
@@ -224,17 +224,18 @@ require_once (APPPATH . 'controllers/home.php');
                         $this->email->to($post['email']);
                         $this->email->subject('Registration successful');
                         $this->email->message($message);
+                        //var_dump($this->email->send()); exit;
                         if($this->email->send()) {
-                            
-                            $data['msg'] = '<script> alert(\"Ragistration Successfull Please Check Your Email.\");</script>';
-                            $this->load->view('success_page');
+                             
                             echo true ; exit;
-                        } 
+                        }
+                        else {
+                            
+                            echo $this->email->print_debugger(); exit;
+                        }
                 }
                 else {
                             
-                    $data['error'] = '<script> alert(\"Your Ragistration Fail Please Try Again.\");</script>';
-                    $this->load->view('index',$data);
                     echo false; exit;
                 }
             }

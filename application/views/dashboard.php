@@ -7,11 +7,13 @@
 <link type="text/css" rel="stylesheet" href="<?=base_url('public_html/front/css/normalize.css');?>" />
 <link type="text/css" rel="stylesheet" href="<?=base_url('public_html/front/css/reveal.css');?>">
 <link href="<?=base_url('public_html/front/css/jquery.mCustomScrollbar.css');?>" rel="stylesheet" />
-	
+
+<script type="text/javascript"> var BASE_URL = '<?=base_url()?>'; </script>	
 <script type="text/javascript" src="<?=base_url('public_html/front/script/jquery.custom-scrollbar.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public_html/front/script/jquery-1.9.1.js');?>"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
 <script type="text/javascript" src="<?=base_url('public_html/front/script/jquery.reveal.js');?>"></script>
+<script type="text/javascript" src="<?=base_url('public_html/front/script/form.js');?>"></script>
 
 
 
@@ -290,11 +292,11 @@
 			<h1>Add Grade Weight</h1>
 			<div class="gradedetail">
 			 <label>Name</label>
-			 <input type="text" value="" plceholder="" name="" class="marginbottom15">
+                         <input type="text" value="" plceholder="" name="name" class="marginbottom15" id="grade_name">
 			  <label>Percentage (%)</label>
-			 <input type="text" value="" plceholder="" name="">
+			 <input type="text" value="" plceholder="" name="percentage" id="grade_per">
 			 
-			 <input type="button" value="Save" class="darkgreenbtn" name="">
+                         <input type="button" value="Save" class="darkgreenbtn" name="" onclick="add_gradeWeight()">
 			 </div>
 			 
 			<!--<a class="close-reveal-modal">&#215;</a>-->

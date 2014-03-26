@@ -81,7 +81,7 @@ function submitForm(){
         
         var form = $("#user_form").serialize();
 //        {name: nilesh, lname:abc, comp:asuem}
-        $.post("http://teacherportal.aseuminfotech.com/index.php/usermgmt/add_user",
+        $.post(BASE_URL+"index.php/usermgmt/add_user",
         form,
         function(data,status){
             
@@ -125,7 +125,7 @@ function payment() {
         
         $.ajax({
     
-            url : "http://localhost/Nilesh1/Teacher_Portal/index.php/usermgmt/select_plan/",
+            url : BASE_URL+"index.php/usermgmt/select_plan/",
             type : 'post',
             data : data,
             success : function(result) {
@@ -134,9 +134,28 @@ function payment() {
             },
             error : function(error) {
                 
-                alert(error);
+                jAlert(error);
             }
         });
     }
     
 }
+function add_gradeWeight() {
+        
+        var name = $('#grade_name').val();
+        var percentage = $('#grade_per').val();
+        var data = 'name=' + name;
+
+        $.ajax({
+              
+            url : BASE_URL + "index.php/gradeweight/add_gradeweight",
+            type : 'post',
+            data : data,
+            success : function(result) {
+                
+                alert(result);
+            }
+            
+        });
+}
+    
