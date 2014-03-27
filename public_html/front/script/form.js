@@ -142,20 +142,63 @@ function payment() {
 }
 function add_gradeWeight() {
         
-        var name = $('#grade_name').val();
-        var percentage = $('#grade_per').val();
-        var data = 'name=' + name;
-
-        $.ajax({
-              
-            url : BASE_URL + "index.php/gradeweight/add_gradeweight",
-            type : 'post',
-            data : data,
-            success : function(result) {
-                
-                alert(result);
-            }
+        var letters = /^[a-zA-Z ]+$/;
+        var float = /^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/ ;
+        
+        if($('#grade_name').val() == '') {
             
-        });
+            jAlert('Please enter name');
+            return;
+        }
+        else if(!letters.test($('#grade_name').val())) {
+            
+            jAlert('Please input alphanumeric characters only');
+            return;
+        }
+        else if($('#grade_per').val() == '') {
+            
+            jAlert('Please enter percentage');
+            return;
+        }
+        else if(!float.test($('#grade_per').val())) {
+            
+            jAlert('Please enter integer or float value');
+            return;
+        }
+        else {
+            
+            var name = $('#grade_name').val();
+            var percentage = $('#grade_per').val();
+
+            $.ajax({
+
+                url : BASE_URL + "index.php/gradeweight/add_gradeweight",
+                type : 'post',
+                data : {name:name,percentage:percentage},
+                success : function(result) {
+                    
+                    if(!result) {
+                        
+                        jAlert(result);
+                        return;
+                    }
+                    else {
+                        
+                        $('#gradeweight').hide();
+                        jAlert('grade weight add successfull','Success',function(r){
+                        if(r) {
+                            window.location.reload();
+                        } });
+                    }
+                    
+                }
+
+            });
+            return false;
+        }
+}
+function add_studentGrouping() {
+    
+    
 }
     

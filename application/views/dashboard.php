@@ -7,6 +7,7 @@
 <link type="text/css" rel="stylesheet" href="<?=base_url('public_html/front/css/normalize.css');?>" />
 <link type="text/css" rel="stylesheet" href="<?=base_url('public_html/front/css/reveal.css');?>">
 <link href="<?=base_url('public_html/front/css/jquery.mCustomScrollbar.css');?>" rel="stylesheet" />
+<link rel="stylesheet" href="<?=base_url('public_html/front/css/jQuery.alert.css');?>" />
 
 <script type="text/javascript"> var BASE_URL = '<?=base_url()?>'; </script>	
 <script type="text/javascript" src="<?=base_url('public_html/front/script/jquery.custom-scrollbar.js');?>"></script>
@@ -14,6 +15,7 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
 <script type="text/javascript" src="<?=base_url('public_html/front/script/jquery.reveal.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public_html/front/script/form.js');?>"></script>
+<script type="text/javascript" src="<?=base_url('public_html/front/script/jQuery.alert.js');?>"></script>
 
 
 
@@ -107,14 +109,17 @@
 																		<th width="63px">Edit</th>
 																		<th width="78px">Delete</th>
 																</tr>
+                                                                                                                                <?php
+                                                                                                                                foreach($gradeweight_list as $data) { ?>
 																<tr class="bg">
-																		<td class="bdrleft">&nbsp;</td>
-																		<td>&nbsp;</td>
-																		<td>&nbsp;</td>
-																		<td><img src="<?=base_url('public_html/front/images/editicon.jpg');?>" alt="" title=""></td>
-																		<td class="bdrright"><img src="<?=base_url('public_html/front/images/deleteicon.png');?>" alt="" title=""></td>
+																		<td class="bdrleft"><?=$data->id?></td>
+																		<td><?=$data->name?></td>
+																		<td><?=$data->percentage?></td>
+                                                                                                                                                <td><a href="#" data-reveal-id="gradeweight" data-animation="fade"><img src="<?=base_url('public_html/front/images/editicon.jpg');?>" alt="" title=""></a></td>
+                                                                                                                                                <td class="bdrright"><img src="<?=base_url('public_html/front/images/deleteicon.png');?>" alt="" title=""></td>
 																</tr>
-																<tr>
+                                                                                                                                <?php } ?>
+<!--																<tr>
 																		<td class="bdrleft">&nbsp;</td>
 																		<td>&nbsp;</td>
 																		<td>&nbsp;</td>
@@ -141,15 +146,16 @@
 																		<td class="bdrbottom">&nbsp;</td>
 																		<td class="bdrbottom"><img src="<?=base_url('public_html/front/images/editicon.jpg');?>" alt="" title=""></td>
 																		<td class="bdrright bdrbottom"><img src="<?=base_url('public_html/front/images/deleteicon.png');?>" alt="" title=""></td>
-																</tr>
+																</tr>-->                                                                         
 																<tfoot>
 																		<tr>
 																				<td colspan="5" class="bdrbottom bdrleft bdrright"><div class="tabletotal"> <span>Total:</span>
-																								<input type="text" plceholder="" value="" name="">
+																								<input type="text" plceholder="" value="<?=count($gradeweight_list)?>" name="">
 																						</div></td>
 																		</tr>
 																</tfoot>
 														</table>
+                                                                                                                <?=$pagination?>
 														<h1 class="left">Student Grouping</h1>
 														<span class="right"><a href="#" data-reveal-id="studentgroup" data-animation="fade"><img src="<?=base_url('public_html/front/images/addplusicon.png');?>" alt="" title=""></a></span>
 														<div class="clear"></div>
