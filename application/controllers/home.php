@@ -7,11 +7,12 @@
             parent::__construct();
             
             // Your own constructor code
-//            $this->load->helper(array('url','file','array','string'));
-//            $this->load->library('form_validation');
-//            $this->load->library('session');
-//            $this->load->library('encrypt');
-//            $this->load->library('paypal');
+            $this->load->helper(array('url','file','array','string'));
+            $this->load->library('form_validation');
+            $this->load->library('session');
+            $this->load->library('encrypt');
+            $this->load->library('paypal');
+            $this->load->library('pagination');
             
 //            $this->template->set_template('default');
 //            $this->template->write('title', 'Teacher Portal');
@@ -19,6 +20,8 @@
 //            $title
             // Load Model
             $this->load->model('users_model');
+            $this->load->model('gradeweight_model');
+            //$this->load->model('home_model');
 
          
         }

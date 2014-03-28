@@ -32,7 +32,7 @@ class Gradeweight_model extends CI_Model {
         
         if(!empty($where)){
             
-            $this->db->where('id',$where);
+            $this->db->where($where);
             $query = $this->db->get('grade_weight');
             return $query->result();
         }
@@ -48,6 +48,28 @@ class Gradeweight_model extends CI_Model {
             
             return false;
         }
+    }
+    function update_gradeweight($grade_data) {
+        
+        if(!empty($grade_data)) {
+            
+            $this->db->where('id',$grade_data['id']);
+            $query = $this->db->update('grade_weight',$grade_data);
+            return 1;
+        }
+        else {
+            
+            return false;
+        }
+    }
+    function delete_gradeweight($where = array()) {
+        
+        if(!empty($where)) {
+            
+            $this->db->delete('grade_weight',$where);
+            return 1;
+        }
+        return false;
     }
 }
 

@@ -19,6 +19,13 @@
 
 	$('a[data-reveal-id]').live('click', function(e) {
 		e.preventDefault();
+                
+/* Bigin clear Input Value */ 
+
+                $("input[type=text],input[type=password]").val('');
+
+/* End clear input value */
+
 		var modalLocation = $(this).attr('data-reveal-id');
 		$('#'+modalLocation).reveal($(this).data());
 	});

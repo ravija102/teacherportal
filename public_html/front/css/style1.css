@@ -114,7 +114,7 @@ textarea { background:#fff; border:1px solid #c4c4c4; font-size:14px; color:#484
 .noline { line-height:normal !important; }
 .formright select { width:224px; float:left; margin-top:20px; }
 .formright .radiodiv { margin:15px 0 0 10px; float:left; }
-input[type="button"], input[type="reset"], input[type="submit"] { border:none; }
+//input[type="button"], input[type="reset"], input[type="submit"] { border:none; }
 .bluebtn { background:#4172b8; font-size:16px; color:#fff; padding:13px 40px; text-align:center; text-align:center; border-bottom:2px solid #114793 !important; border-radius: 3px; }
 .darkgreenbtn { background:#3dae48; font-size:16px; color:#fff; padding:13px 27px; text-align:center; text-align:center; border-bottom:2px solid #0f7119 !important; border-radius: 3px; }
 .marginleft10 { margin-left:10px; }
