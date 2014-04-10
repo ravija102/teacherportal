@@ -6,7 +6,7 @@
  * Window - Preferences - PHPeclipse - PHP - Code Templates
  */
  
-class Gradeweight_model extends CI_Model {
+class Classsetup_model extends CI_Model {
 
     function __construct()
     {
@@ -18,13 +18,14 @@ class Gradeweight_model extends CI_Model {
     {
         return $this->db->where($where)->count_all("grade_weight");
     }
-    function get_gradeweight($where = array(), $start = -1) {
+    function get_gradeweight($where = array(), $start = -1,$t_id) {
         
         //if(!empty($where))
             //$this->db->where($where);
         if($start >= 0)
             
             $this->db->limit($where, $start);
+            $this->db->where('teacher_id',$t_id);
             $query = $this->db->order_by('id', 'ASC')->get('grade_weight');
             return $query->result();
     }
@@ -70,6 +71,32 @@ class Gradeweight_model extends CI_Model {
             return 1;
         }
         return false;
+    }
+    function add_class($class_data) {
+        
+        if(!empty($class_data)) {
+            
+            $query = $this->db->insert('class_setup',$class_data);
+            return $query;
+        }
+        else {
+            
+            return FALSE;
+        }
+    }
+    function get_students($where = array()) {
+        
+        if(isset($where) && $where > 0) { 
+            
+            $this->db->where('gradelevel_id',$where);
+            $query = $this->db->get('student');
+            
+            return $query->result();
+        }
+        else {
+            
+            return false;
+        }
     }
 }
 
